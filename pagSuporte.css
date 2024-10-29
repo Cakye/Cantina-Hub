@@ -1,0 +1,129 @@
+/*Importes*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import 'config/variables';
+@import 'base/base';
+@import 'components/search';
+@import 'components/breakpoints';
+
+/*App todo*/
+
+    /*Cabeçalho*/
+
+header {
+    margin-left:60px;
+    margin-bottom: 70%;
+    padding-right: 100%;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    background-color: #38686A;
+}
+
+p{ 
+    color: rgb(0, 0, 0);
+    background-color: none;
+    margin-top: 110px;
+    margin-right: -100px;
+    margin-left: 100px;
+    font-size: 20px;
+}
+
+h2{
+    color: #F1F0EA;
+    margin-top: 18px;
+    margin-left: 18px;
+    
+}
+
+    /*menu lateral*/
+    *{
+      font-family:'Poppins' , sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    
+    body{
+      min-height: 100vh;
+      background: #F1F0EA;
+      display: flex;
+    } 
+
+.navegacao{
+    position: fixed;
+    width: 60px;
+    height: 100%;
+    background: #38686A;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+
+.navegacao.active,
+.navegacao:hover{
+    width: 230px;
+}
+
+
+.navegacao ul{
+    position: absolute;
+    top: 15px; /*Altura dos emojis*/
+    left: 0;
+    width: 100%;
+}
+
+
+.navegacao ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+
+
+.navegacao ul li:hover{
+    background: #A3B4A2;
+}
+
+
+.navegacao ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.navegacao ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+
+
+.navegacao ul li a .icon .fa-solid{
+    font-size: 28px; /*Tamanho dos emojis*/
+}
+
+
+.navegacao ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px; /*Espaçamento entre os emojis*/
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}

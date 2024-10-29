@@ -1,0 +1,465 @@
+/* Geral */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #f1f0ea;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Definindo a largura da barra de navegação */ 
+:root { 
+  --nav-width: 80px; /* Largura padrão */ 
+  --nav-expanded-width: 220px; /* Aumentando a largura quando expandida */ 
+} 
+ 
+/* Navegação Lateral */ 
+.navegacao { 
+  position: fixed; 
+  width: var(--nav-width); 
+  height: 100%; 
+  background: #38686a; 
+  transition: width 0.5s; 
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.navegacao:hover {
+  width: var(--nav-expanded-width); /* Largura aumentada ao passar o mouse */
+}
+
+.navegacao ul {
+  padding-top: 80px;
+}
+
+.navegacao ul li {
+  list-style: none;
+}
+
+.navegacao ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navegacao ul li a .icon {
+  min-width: 75px;
+  text-align: center;
+}
+
+.navegacao ul li a .icon .fa-solid {
+  font-size: 24px;
+}
+
+.navegacao ul li a .title {
+  font-size: 14px;
+  opacity: 0; /* Tornar invisível inicialmente */
+  transition: opacity 0.3s;
+}
+
+.navegacao:hover ul li a .title {
+  opacity: 1; /* Tornar visível ao expandir a barra */
+}
+
+/* Header */
+header {
+  width: calc(100% - var(--nav-width));
+  margin-left: var(--nav-width);
+  background-color: #38686a;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+header h2 {
+  color: #f1f0ea;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+
+.search {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.search input {
+  padding: 8px;
+  width: 80%; /* Ajustando a largura para não encostar nas bordas */
+  max-width: 400px; /* Limite máximo de largura */
+  border-radius: 5px;
+  border: none;
+}
+
+/* Main Content */
+main {
+  margin-left: var(--nav-width);
+  padding-top: 100px; /* Ajuste do espaço para o header fixo */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.botao-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Mais espaçamento entre os botões */
+  margin-top: 50px; /* Mais espaçamento do topo */
+}
+
+.botao-container a {
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  padding: 15px 30px; /* Aumentar o padding */
+  font-size: 1.2em; /* Aumentar o tamanho do texto */
+  background-color: #38686a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 250px; /* Aumentar a largura dos botões */
+}
+
+button:hover {
+  background-color: #2f5559;
+}
+
+
+
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  :root {
+    --nav-width: 60px; /* Ajuste da largura da barra de navegação */
+    --nav-expanded-width: 150px; /* Ajuste da largura expandida em telas menores */
+  }
+  .navegacao {
+    width: var(--nav-width);
+  }
+  .navegacao:hover {
+    width: var(--nav-expanded-width);
+  }
+  .navegacao ul li a .icon {
+    min-width: 50px;
+  }
+  .navegacao ul li a .title {
+    opacity: 0;
+  }
+  .navegacao:hover ul li a .title {
+    opacity: 1;
+  }
+  .navegacao ul {
+    padding-top: 90px; /* Diminui o padding superior */
+  }
+  header {
+    width: calc(100% - var(--nav-width));
+    margin-left: var(--nav-width);
+  }
+  main {
+    margin-left: var(--nav-width);
+  }
+  
+  table {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  main {
+    margin-left: 55px; /* Atualiza para a barra menor */
+    width: calc(100% - 60px); /* Ajusta a largura */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --nav-width: 55px;
+    --nav-expanded-width: 120px;
+  }
+  .navegacao {
+    width: var(--nav-width);
+  }
+  .navegacao:hover {
+    width: var(--nav-expanded-width);
+  }
+  .navegacao ul li a .icon {
+    min-width: 40px;
+  }
+  header {
+    width: calc(100% - var(--nav-width));
+    margin-left: var(--nav-width);
+  }
+  main {
+    margin-left: var(--nav-width);
+  }
+  header h2 {
+    font-size: 1.8em;
+    width: calc(100% - var(--nav-width));
+  }
+  button {
+    font-size: 1em;
+    width: 90%;
+  }
+  .add-button {
+    margin-left: 60%;
+    margin-right: 10px;
+    white-space: nowrap;
+    width: auto;
+    margin-bottom: -10px;
+  }
+  .search input {
+    max-width: 300px;
+    width: 85%;
+  }
+  .overlay-content {
+    width: 92%;
+    max-width: 330px;
+    max-height: 83%;
+    padding: 20px;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  :root {
+    --nav-width: 50px;
+    --nav-expanded-width: 110px;
+  }
+  .navegacao {
+    width: var(--nav-width);
+  }
+  .navegacao:hover {
+    width: var(--nav-expanded-width);
+  }
+  .navegacao ul {
+    padding-top: 80px;
+  }
+  .navegacao ul li a .icon {
+    min-width: 35px;
+  }
+  header {
+    width: calc(100% - var(--nav-width));
+    margin-left: var(--nav-width);
+  }
+  main {
+    margin-left: var(--nav-width);
+  }
+  header h2 {
+    font-size: 1.2em;
+  }
+  button {
+    font-size: 1em;
+    width: 90%;
+  }
+  .search input {
+    max-width: 280px;
+    width: 85%;
+  }
+  .add-button {
+    margin-left: 50%;
+    margin-right: 10px;
+    white-space: nowrap;
+    width: auto;
+  }
+  .overlay-content {
+    width: 92%;
+    max-width: 300px;
+    max-height: 83%;
+    padding: 20px;
+    overflow-y: auto;
+  }
+}
+
+
+/* Estilos da sobreposição */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-content {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  width: 450px;
+  margin-left: 50px;
+}
+
+
+.overlay-content h2 {
+  margin-bottom: 20px;
+  color: #38686a;
+}
+
+
+div#detalhesConta {
+  margin-bottom: 15px; /* Espaçamento maior entre cada detalhe */
+}
+
+
+
+#valorAdicionar, #valorDiminuir {
+  margin: 13px 0; /* Aumentando o espaçamento entre os campos */
+}
+
+
+
+.overlay-content label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.overlay-content input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.overlay-content button {
+  padding: 10px 20px;
+  font-size: 0.9em;
+  background-color: #38686a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 2px; /*espaçamento entre os botões de salvar e excluir*/
+}
+
+.overlay-content button:hover {
+  background-color: #2f5559;
+}
+
+#deleteBtn {
+  background-color: #d9534f;
+}
+
+#deleteBtn:hover {
+  background-color: #c9302c;
+}
+
+
+
+/* Main Content */
+main {
+  margin-left: var(--nav-width); /* Largura da barra lateral */
+  margin-top: 100px;
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo do main */
+  flex-direction: column;
+  gap: 20px;
+  width: calc(100% - var(--nav-width)); /* Ajusta a largura para considerar a barra lateral */
+  align-items: center; /* Centraliza os itens a partir da barra lateral */
+}
+
+.add-button {
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #38686a;
+  color: #f1f0ea;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center; /* Centraliza o botão */
+}
+
+.add-button:hover {
+  background-color: #2b4e52;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  min-width: 300px; /* Define a largura mínima */
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: left;
+  background-color: #fff;
+  table-layout: fixed; 
+}
+
+table thead {
+  background-color: #38686a;
+  color: white;
+}
+
+table th,
+table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+table th:first-child,
+table td:first-child {
+  width: 70%; /* 70% para a coluna de informações */
+}
+
+table th:last-child,
+table td:last-child {
+  width: 30%; /* 30% para a coluna de ações */
+}
+
+table tbody td {
+  padding: 10px;
+  background-color: #f1f0ea;
+}
+
+.conta-info {
+  overflow-x: auto;
+  padding-bottom: 20px; /* Adiciona espaço extra para a barra de rolagem */
+  font-size: 14px; /* Aumenta o tamanho da fonte */
+}
+
+
+.edit-button {
+  padding: 5px 10px;
+  background-color: #48686a;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #2f5559;
+}
+
+.delete-button {
+  padding: 5px 10px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c9302c;
+}

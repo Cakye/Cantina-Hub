@@ -1,0 +1,218 @@
+/* Geral */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #f1f0ea;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+:root {
+  --nav-width: 80px; /* Largura padrão */
+  --nav-expanded-width: 220px; /* Aumentando a largura quando expandida */
+}
+
+/* Navegação Lateral */
+.navegacao {
+  position: fixed;
+  width: var(--nav-width);
+  height: 100%;
+  background: #38686a;
+  transition: width 0.5s;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.navegacao:hover {
+  width: var(--nav-expanded-width); /* Largura aumentada ao passar o mouse */
+}
+
+.navegacao ul {
+  padding-top: 90px;
+}
+
+.navegacao ul li {
+  list-style: none;
+}
+
+.navegacao ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navegacao ul li a .icon {
+  min-width: 75px;
+  text-align: center;
+}
+
+.navegacao ul li a .icon .fa-solid {
+  font-size: 24px;
+}
+
+.navegacao ul li a .title {
+  font-size: 14px;
+  opacity: 0; /* Tornar invisível inicialmente */
+  transition: opacity 0.3s;
+}
+
+.navegacao:hover ul li a .title {
+  opacity: 1; /* Tornar visível ao expandir a barra */
+}
+
+/* Header */
+header {
+  width: calc(100% - var(--nav-width));
+  margin-left: var(--nav-width);
+  background-color: #38686a;
+  text-align: center;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+header h2 {
+  color: #f1f0ea;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.search {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.search input {
+  padding: 8px;
+  width: 80%; /* Ajustando a largura para não encostar nas bordas */
+  max-width: 400px; /* Limite máximo de largura */
+  border-radius: 5px;
+  border: none;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  :root {
+    --nav-width: 60px; /* Ajuste da largura da barra de navegação */
+    --nav-expanded-width: 150px; /* Ajuste da largura expandida em telas menores */
+  }
+
+  .navegacao {
+    width: var(--nav-width);
+  }
+
+  .navegacao:hover {
+    width: var(--nav-expanded-width);
+  }
+
+  .navegacao ul li a .icon {
+    min-width: 50px;
+  }
+
+  .navegacao ul li a .title {
+    opacity: 0;
+  }
+
+  .navegacao:hover ul li a .title {
+    opacity: 1;
+  }
+
+  header {
+    width: calc(100% - var(--nav-width));
+    margin-left: var(--nav-width);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --nav-width: 55px;
+    --nav-expanded-width: 120px; /* Ajuste da largura expandida em telas menores */
+  }
+
+  .navegacao {
+    width: var(--nav-width);
+  }
+
+  .navegacao:hover {
+    width: var(--nav-expanded-width);
+  }
+
+  .navegacao ul li a .icon {
+    min-width: 40px;
+  }
+
+  header {
+    width: calc(100% - var(--nav-width));
+    margin-left: var(--nav-width);
+  }
+
+  header h2 {
+    font-size: 1.2em;
+  }
+
+  .search input {
+    max-width: 300px; /* Reduzir a largura da barra de pesquisa em telas pequenas */
+    width: 85%; /* Adicionar espaçamento para não encostar nas bordas */
+  }
+  button {
+    font-size: 1em; /* Ajustar o tamanho do texto em telas pequenas */
+    width: 90%; /* Aumentar a largura dos botões em telas pequenas */
+  }
+
+  .search input {
+    max-width: 300px; /* Reduzir a largura da barra de pesquisa em telas pequenas */
+    width: 85%; /* Adicionar espaçamento para não encostar nas bordas */
+  }
+
+}
+
+/* Main Content */
+main {
+  margin-left: var(--nav-width);
+  padding-top: 100px; /* Ajuste do espaço para o header fixo */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.botao-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px; /* Mais espaçamento entre os botões */
+  margin-top: 30px; /* Mais espaçamento do topo */
+}
+
+.botao-container a {
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  padding: 15px 30px; /* Aumentar o padding */
+  font-size: 1em; /* Aumentar o tamanho do texto */
+  background-color: #38686a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 250px; /* Aumentar a largura dos botões */
+}
+
+button:hover {
+  background-color: #2f5559;
+}
+
+
+
